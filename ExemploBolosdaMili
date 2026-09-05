@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cardápio de Exemplo — Bolos de Festa</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;1,500;1,600&family=Poppins:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --wine:#6B2737;
+    --wine-dark:#4A1824;
+    --gold:#C89B3C;
+    --gold-light:#DEBC80;
+    --cream:#FFF8F0;
+    --cream-dark:#F7ECDE;
+    --blush:#F2CDD4;
+    --text-dark:#3A2020;
+    --text-gray:#6E5A5A;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:var(--cream);
+    color:var(--text-dark);
+    font-family:'Poppins',sans-serif;
+    line-height:1.5;
+  }
+  h1,h2,h3,.serif{
+    font-family:'Lora',serif;
+    font-style:italic;
+    font-weight:600;
+    color:var(--wine);
+    margin:0;
+  }
+  a{color:inherit;}
+  img{display:block;max-width:100%;}
+  .wrap{max-width:1120px;margin:0 auto;padding:0 24px;}
+
+  /* ---------- header ---------- */
+  header{
+    position:sticky;top:0;z-index:50;
+    background:rgba(255,248,240,0.92);
+    backdrop-filter:blur(6px);
+    border-bottom:1px solid var(--gold-light);
+  }
+  .nav{
+    display:flex;align-items:center;justify-content:space-between;
+    padding:14px 24px;max-width:1120px;margin:0 auto;
+  }
+  .brand{display:flex;align-items:center;gap:10px;text-decoration:none;}
+  .brand-badge{
+    width:38px;height:38px;border-radius:50%;background:var(--wine);
+    display:flex;align-items:center;justify-content:center;
+    border:2px solid var(--gold);flex-shrink:0;
+  }
+  .brand-badge svg{width:20px;height:20px;}
+  .brand-name{font-family:'Lora',serif;font-style:italic;font-weight:600;color:var(--wine);font-size:1.15rem;}
+  .brand-tag{font-size:.62rem;letter-spacing:.14em;color:var(--gold);font-weight:600;text-transform:uppercase;margin-top:-2px;}
+  nav.links{display:flex;gap:28px;font-size:.9rem;font-weight:500;}
+  nav.links a{text-decoration:none;color:var(--text-dark);}
+  nav.links a:hover{color:var(--wine);}
+  .btn-whatsapp{
+    background:var(--wine);color:var(--cream);border:none;
+    padding:10px 20px;border-radius:999px;font-weight:600;font-size:.85rem;
+    text-decoration:none;white-space:nowrap;
+  }
+  .nav-links-wrap{display:flex;align-items:center;gap:28px;}
+  @media (max-width:760px){
+    nav.links{display:none;}
+    .brand-tag{display:none;}
+  }
+
+  /* ---------- hero ---------- */
+  .hero{position:relative;overflow:hidden;padding:64px 24px 56px;text-align:center;}
+  .blob{position:absolute;border-radius:50%;background:var(--blush);opacity:.55;z-index:0;}
+  .blob.b1{width:260px;height:260px;top:-120px;left:-100px;}
+  .blob.b2{width:220px;height:220px;bottom:-110px;right:-90px;opacity:.4;}
+  .hero-content{position:relative;z-index:1;max-width:640px;margin:0 auto;}
+  .photo-ring{
+    width:280px;height:280px;border-radius:50%;margin:0 auto 28px;
+    border:4px solid var(--gold);padding:6px;position:relative;
+  }
+  .photo-ring img{width:100%;height:100%;object-fit:cover;border-radius:50%;}
+  .hero h1{font-size:2.6rem;margin-bottom:10px;}
+  .hero p.sub{color:var(--text-gray);font-size:1.05rem;margin-bottom:30px;}
+  .cta-row{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;}
+  .btn-primary{
+    background:var(--wine);color:var(--cream);padding:14px 28px;border-radius:999px;
+    text-decoration:none;font-weight:600;font-size:.95rem;
+  }
+  .btn-secondary{
+    background:transparent;color:var(--wine);padding:14px 28px;border-radius:999px;
+    text-decoration:none;font-weight:600;font-size:.95rem;border:1.5px solid var(--wine);
+  }
+
+  /* ---------- highlights ---------- */
+  .highlights{padding:10px 24px 64px;}
+  .highlights-grid{
+    max-width:1120px;margin:0 auto;display:grid;
+    grid-template-columns:repeat(3,1fr);gap:18px;
+  }
+  .hcard{
+    background:var(--cream-dark);border:1px solid var(--gold-light);
+    border-radius:16px;padding:26px 20px;text-align:center;
+  }
+  .hcard .emoji{font-size:1.8rem;margin-bottom:10px;}
+  .hcard h3{font-family:'Poppins',sans-serif;font-style:normal;font-weight:600;font-size:1rem;color:var(--wine);margin-bottom:6px;}
+  .hcard p{margin:0;font-size:.85rem;color:var(--text-gray);}
+  @media (max-width:700px){.highlights-grid{grid-template-columns:1fr;}}
+
+  /* ---------- section titles ---------- */
+  .section{padding:64px 24px;}
+  .section.alt{background:var(--cream-dark);}
+  .section-head{max-width:640px;margin:0 auto 44px;text-align:center;}
+  .section-head h2{font-size:2rem;margin-bottom:10px;}
+  .section-head p{color:var(--text-gray);font-size:.98rem;margin:0;}
+  .divider-dot{width:70px;height:1px;background:var(--gold);margin:14px auto;position:relative;}
+  .divider-dot::after{content:'';position:absolute;top:-3px;left:50%;transform:translateX(-50%);width:7px;height:7px;border-radius:50%;background:var(--gold);}
+
+  /* ---------- menu grid ---------- */
+  .menu-grid{
+    max-width:1120px;margin:0 auto;display:grid;
+    grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:34px 28px;
+  }
+  .cake-card{display:flex;flex-direction:column;align-items:center;text-align:center;}
+  .cake-photo{
+    width:180px;height:180px;border-radius:50%;border:4px solid var(--gold);
+    padding:5px;margin-bottom:18px;position:relative;flex-shrink:0;
+  }
+  .cake-photo img{width:100%;height:100%;object-fit:cover;border-radius:50%;}
+  .badge{
+    position:absolute;top:-6px;right:-10px;background:var(--gold);color:var(--wine-dark);
+    font-size:.62rem;font-weight:700;padding:5px 10px;border-radius:999px;
+    letter-spacing:.03em;white-space:nowrap;
+  }
+  .cake-card h3{font-size:1.25rem;margin-bottom:8px;}
+  .cake-card .desc{font-size:.87rem;color:var(--text-dark);margin-bottom:10px;min-height:58px;}
+  .cake-meta{font-size:.76rem;color:var(--text-gray);margin-bottom:16px;}
+  .cake-meta span{white-space:nowrap;}
+  .price-pill{
+    background:var(--wine);color:var(--cream);font-weight:600;font-size:.88rem;
+    padding:10px 22px;border-radius:999px;
+  }
+
+  /* ---------- sizes table ---------- */
+  .sizes-wrap{max-width:640px;margin:0 auto;}
+  table.sizes{width:100%;border-collapse:separate;border-spacing:0;border-radius:16px;overflow:hidden;border:1px solid var(--gold-light);}
+  table.sizes thead th{
+    background:var(--wine);color:var(--cream);font-size:.82rem;font-weight:600;
+    padding:16px 10px;text-transform:uppercase;letter-spacing:.03em;
+  }
+  table.sizes tbody td{padding:15px 10px;text-align:center;font-size:.92rem;border-top:1px solid var(--gold-light);}
+  table.sizes tbody tr:nth-child(even){background:var(--cream-dark);}
+  table.sizes td.tam{font-weight:700;color:var(--wine);}
+  table.sizes td.preco{font-weight:700;color:var(--wine);}
+  .sizes-note{text-align:center;font-size:.82rem;color:var(--text-gray);font-style:italic;margin-top:16px;}
+  .tip-box{
+    max-width:640px;margin:26px auto 0;background:var(--blush);opacity:.9;
+    border-radius:14px;padding:18px 22px;font-size:.88rem;
+  }
+  .tip-box b{color:var(--wine-dark);}
+
+  /* ---------- personalize ---------- */
+  .personalize-grid{
+    max-width:1120px;margin:0 auto;display:grid;grid-template-columns:1.1fr 0.9fr;
+    gap:48px;align-items:center;
+  }
+  .personalize-list{list-style:none;margin:26px 0 0;padding:0;}
+  .personalize-list li{display:flex;gap:14px;margin-bottom:20px;}
+  .personalize-list .ic{font-size:1.3rem;}
+  .personalize-list h4{margin:0 0 3px;font-size:1rem;color:var(--wine-dark);font-weight:600;}
+  .personalize-list p{margin:0;font-size:.85rem;color:var(--text-gray);}
+  .personalize-photo{
+    width:100%;aspect-ratio:1/1;max-width:340px;margin:0 auto;border-radius:50%;
+    border:4px solid var(--gold);padding:6px;
+  }
+  .personalize-photo img{width:100%;height:100%;object-fit:cover;border-radius:50%;}
+  @media (max-width:800px){.personalize-grid{grid-template-columns:1fr;} .personalize-photo{order:-1;}}
+
+  /* ---------- contact / footer ---------- */
+  .contact{background:var(--wine);color:var(--cream);padding:70px 24px 40px;text-align:center;position:relative;overflow:hidden;}
+  .contact .blob{background:var(--wine-dark);opacity:.5;}
+  .contact .blob.c1{width:220px;height:220px;top:-100px;left:-80px;}
+  .contact .blob.c2{width:220px;height:220px;bottom:-100px;right:-80px;}
+  .contact-inner{position:relative;z-index:1;max-width:560px;margin:0 auto;}
+  .contact h2{color:var(--cream);font-size:2rem;}
+  .contact p.lead{color:var(--blush);margin:14px 0 34px;font-size:1rem;}
+  .contact-card{
+    background:var(--cream);color:var(--text-dark);border-radius:18px;
+    padding:30px 26px;text-align:left;display:flex;flex-direction:column;gap:20px;
+  }
+  .contact-row{display:flex;gap:14px;align-items:flex-start;}
+  .contact-row .ic{font-size:1.3rem;}
+  .contact-row h4{margin:0 0 2px;color:var(--wine);font-size:.92rem;font-weight:700;}
+  .contact-row p{margin:0;font-size:.92rem;}
+  .thanks{margin-top:34px;font-size:1.05rem;color:var(--gold-light);}
+  .fine-print{margin-top:36px;font-size:.72rem;color:var(--blush);opacity:.8;}
+
+  footer.site-footer{background:var(--wine-dark);color:var(--blush);text-align:center;padding:16px;font-size:.72rem;}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="nav">
+    <a href="#top" class="brand">
+      <span class="brand-badge">
+        <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <rect x="25" y="55" width="50" height="24" rx="2" fill="#FFF8F0"/>
+          <ellipse cx="50" cy="55" rx="25" ry="7" fill="#FFF8F0"/>
+          <rect x="35" y="34" width="30" height="21" rx="2" fill="#FFF8F0"/>
+          <ellipse cx="50" cy="34" ry="6" rx="15" fill="#FFF8F0"/>
+          <rect x="47" y="14" width="6" height="20" fill="#FFF8F0"/>
+          <ellipse cx="50" cy="12" rx="5" ry="8" fill="#C89B3C"/>
+        </svg>
+      </span>
+      <span>
+        <div class="brand-name">Cardápio de Exemplo</div>
+        <div class="brand-tag">Confeitaria artesanal</div>
+      </span>
+    </a>
+    <div class="nav-links-wrap">
+      <nav class="links">
+        <a href="#bolos">Bolos</a>
+        <a href="#tamanhos">Tamanhos</a>
+        <a href="#personalize">Personalize</a>
+        <a href="#contato">Contato</a>
+      </nav>
+      <a class="btn-whatsapp" href="#contato">Fazer pedido</a>
+    </div>
+  </div>
+</header>
+
+<section class="hero" id="top">
+  <div class="blob b1"></div>
+  <div class="blob b2"></div>
+  <div class="hero-content">
+    <div class="photo-ring">
+      <img src="https://images.unsplash.com/photo-1635822161882-b82ffacd8278?w=700&h=700&fit=crop&q=80&auto=format" alt="Bolo de festa decorado">
+    </div>
+    <h1>Bolos de Festa</h1>
+    <p class="sub">Momentos especiais merecem um bolo especial ❤</p>
+    <div class="cta-row">
+      <a href="#bolos" class="btn-primary">Ver cardápio</a>
+      <a href="#contato" class="btn-secondary">Fazer pedido</a>
+    </div>
+  </div>
+</section>
+
+<section class="highlights">
+  <div class="highlights-grid">
+    <div class="hcard">
+      <div class="emoji">🎂</div>
+      <h3>10 sabores</h3>
+      <p>Opções para todos os gostos</p>
+    </div>
+    <div class="hcard">
+      <div class="emoji">✅</div>
+      <h3>Feito na hora</h3>
+      <p>Sempre fresquinho para sua festa</p>
+    </div>
+    <div class="hcard">
+      <div class="emoji">🎨</div>
+      <h3>Personalizável</h3>
+      <p>Cores, tema e decoração à sua escolha</p>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="bolos">
+  <div class="section-head">
+    <h2>Nossos bolos</h2>
+    <div class="divider-dot"></div>
+    <p>Dez sabores queridinhos, prontos para deixar sua festa ainda mais doce.</p>
+  </div>
+
+  <div class="wrap menu-grid">
+
+    <div class="cake-card">
+      <div class="cake-photo">
+        <span class="badge">MAIS PEDIDO</span>
+        <img src="https://images.unsplash.com/photo-1630953899650-0ee223bb29d6?w=500&h=500&fit=crop&q=80&auto=format" alt="Bolo Brigadeiro">
+      </div>
+      <h3>Bolo Brigadeiro</h3>
+      <p class="desc">Massa fofinha de chocolate com recheio cremoso de brigadeiro e cobertura de brigadeiro com granulado.</p>
+      <div class="cake-meta"><span>1 kg a 4 kg</span> &nbsp;·&nbsp; <span>Chocolate</span></div>
+      <div class="price-pill">A partir de R$ 89,90</div>
+    </div>
+
+    <div class="cake-card">
+      <div class="cake-photo">
+        <img src="https://images.unsplash.com/photo-1579372785655-a81b19e99b8b?w=500&h=500&fit=crop&q=80&auto=format" alt="Bolo Ninho com Morango">
+      </div>
+      <h3>Bolo Ninho com Morango</h3>
+      <p class="desc">Massa branca amanteigada, recheio de creme de leite Ninho e camadas de morangos frescos.</p>
+      <div class="cake-meta"><span>1 kg a 4 kg</span> &nbsp;·&nbsp; <span>Baunilha / Ninho</span></div>
+      <div class="price-pill">A partir de R$ 109,90</div>
+    </div>
+
+    <div class="cake-card">
+      <div class="cake-photo">
+        <img src="https://images.unsplash.com/photo-1578985545062-69928b1d9587?w=500&h=500&fit=crop&q=80&auto=format" alt="Bolo Prestígio">
+      </div>
+      <h3>Bolo Prestígio</h3>
+      <p class="desc">Massa de chocolate intenso com recheio cremoso de coco e cobertura de chocolate meio amargo.</p>
+      <div class="cake-meta"><span>1 kg a 4 kg</span> &nbsp;·&nbsp; <span>Chocolate / Coco</span></div>
+      <div class="price-pill">A partir de R$ 99,90</div>
+    </div>
+
+    <div class="cake-card">
+      <div class="cake-photo">
+        <img src="https://images.unsplash.com/photo-1606312619070-d48b4c652a52?w=500&h=500&fit=crop&q=80&auto=format" alt="Bolo Dois Amores">
+      </div>
+      <h3>Bolo Dois Amores</h3>
+      <p class="desc">Massa de chocolate com brigadeiro branco de um lado e brigadeiro tradicional do outro.</p>
+      <div class="cake-meta"><span>1 kg a 4 kg</span> &nbsp;·&nbsp; <span>Branco e tradicional</span></div>
+      <div class="price-pill">A partir de R$ 104,90</div>
+    </div>
+
+    <div class="cake-card">
+      <div class="cake-photo">
+        <img src="https://images.unsplash.com/photo-1606890737304-57a1ca8a5b62?w=500&h=500&fit=crop&q=80&auto=format" alt="Bolo Sensação">
+      </div>
+      <h3>Bolo Sensação</h3>
+      <p class="desc">Massa de chocolate com recheio de morango e cobertura de brigadeiro de chocolate.</p>
+      <div class="cake-meta"><span>1 kg a 4 kg</span> &nbsp;·&nbsp; <span>Chocolate / Morango</span></div>
+      <div class="price-pill">A partir de R$ 109,90</div>
+    </div>
+
+    <div class="cake-card">
+      <div class="cake-photo">
+        <img src="https://images.unsplash.com/photo-1602351447937-745cb720612f?w=500&h=500&fit=crop&q=80&auto=format" alt="Bolo Ninho com Nutella">
+      </div>
+      <h3>Bolo Ninho com Nutella</h3>
+      <p class="desc">Massa branca leve, recheio cremoso de Ninho e generosa cobertura de Nutella.</p>
+      <div class="cake-meta"><span>1 kg a 4 kg</span> &nbsp;·&nbsp; <span>Ninho / Nutella</span></div>
+      <div class="price-pill">A partir de R$ 119,90</div>
+    </div>
+
+    <div class="cake-card">
+      <div class="cake-photo">
+        <img src="https://images.unsplash.com/photo-1572897305697-f8adb93dae8f?w=500&h=500&fit=crop&q=80&auto=format" alt="Bolo Churros">
+      </div>
+      <h3>Bolo Churros</h3>
+      <p class="desc">Massa branca com recheio de doce de leite e finalização com canela e açúcar.</p>
+      <div class="cake-meta"><span>1 kg a 4 kg</span> &nbsp;·&nbsp; <span>Doce de leite / Canela</span></div>
+      <div class="price-pill">A partir de R$ 99,90</div>
+    </div>
+
+    <div class="cake-card">
+      <div class="cake-photo">
+        <img src="https://images.unsplash.com/photo-1635117492718-695a17a5977a?w=500&h=500&fit=crop&q=80&auto=format" alt="Bolo Red Velvet">
+      </div>
+      <h3>Bolo Red Velvet</h3>
+      <p class="desc">Clássica massa Red Velvet aveludada com recheio de cream cheese e finalização sofisticada.</p>
+      <div class="cake-meta"><span>1 kg a 4 kg</span> &nbsp;·&nbsp; <span>Cream Cheese</span></div>
+      <div class="price-pill">A partir de R$ 129,90</div>
+    </div>
+
+    <div class="cake-card">
+      <div class="cake-photo">
+        <img src="https://images.unsplash.com/photo-1569929232526-d9c6578e1531?w=500&h=500&fit=crop&q=80&auto=format" alt="Bolo Ouro Branco">
+      </div>
+      <h3>Bolo Ouro Branco</h3>
+      <p class="desc">Massa de chocolate com creme branco e finalização com raspas de chocolate Ouro Branco.</p>
+      <div class="cake-meta"><span>1 kg a 4 kg</span> &nbsp;·&nbsp; <span>Chocolate / Ouro Branco</span></div>
+      <div class="price-pill">A partir de R$ 119,90</div>
+    </div>
+
+    <div class="cake-card">
+      <div class="cake-photo">
+        <span class="badge">SOB MEDIDA</span>
+        <img src="https://images.unsplash.com/photo-1635822161882-b82ffacd8278?w=500&h=500&fit=crop&q=80&auto=format" alt="Bolo Festa Especial">
+      </div>
+      <h3>Bolo Festa Especial</h3>
+      <p class="desc">Massa e recheio à sua escolha, com decoração especial conforme o tema da festa.</p>
+      <div class="cake-meta"><span>1 kg a 4 kg</span> &nbsp;·&nbsp; <span>Personalizável</span></div>
+      <div class="price-pill">A partir de R$ 139,90</div>
+    </div>
+
+  </div>
+</section>
+
+<section class="section alt" id="tamanhos">
+  <div class="section-head">
+    <h2>Escolha o tamanho ideal</h2>
+    <div class="divider-dot"></div>
+    <p>Todos os sabores estão disponíveis nos tamanhos abaixo.</p>
+  </div>
+  <div class="sizes-wrap">
+    <table class="sizes">
+      <thead>
+        <tr><th>Tamanho</th><th>Serve aprox.</th><th>A partir de</th></tr>
+      </thead>
+      <tbody>
+        <tr><td class="tam">1 kg</td><td>10 pessoas</td><td class="preco">R$ 89,90</td></tr>
+        <tr><td class="tam">1,5 kg</td><td>15 pessoas</td><td class="preco">R$ 119,90</td></tr>
+        <tr><td class="tam">2 kg</td><td>20 pessoas</td><td class="preco">R$ 149,90</td></tr>
+        <tr><td class="tam">3 kg</td><td>30 pessoas</td><td class="preco">R$ 209,90</td></tr>
+        <tr><td class="tam">4 kg</td><td>40 pessoas</td><td class="preco">R$ 279,90</td></tr>
+      </tbody>
+    </table>
+    <p class="sizes-note">* Valores exemplificativos, apenas para demonstração.</p>
+    <div class="tip-box"><b>💡 Dica:</b> não sabe qual tamanho escolher? Nos conte quantos convidados terá a festa que te ajudamos a calcular o bolo ideal!</div>
+  </div>
+</section>
+
+<section class="section" id="personalize">
+  <div class="wrap personalize-grid">
+    <div>
+      <h2 style="text-align:left">Personalize seu bolo 🎂</h2>
+      <div class="divider-dot" style="margin-left:0"></div>
+      <p style="color:var(--text-gray);font-size:.98rem;max-width:440px;">Seu bolo, do seu jeito! Conte pra gente o tema da festa e deixamos tudo combinando, da decoração à cor da mesa.</p>
+      <ul class="personalize-list">
+        <li><span class="ic">🎨</span><div><h4>Tema da festa</h4><p>Infantil, romântico, rústico, minimalista...</p></div></li>
+        <li><span class="ic">🖍️</span><div><h4>Cores</h4><p>Combinando com a decoração do seu evento</p></div></li>
+        <li><span class="ic">🔤</span><div><h4>Nome e idade</h4><p>Escrito com capricho no topo ou na lateral</p></div></li>
+        <li><span class="ic">🎉</span><div><h4>Topper e decoração</h4><p>Toppers, flores, confeitos e muito mais</p></div></li>
+        <li><span class="ic">🍓</span><div><h4>Frutas e chocolates</h4><p>Morango, Nutella, Ouro Branco e outros</p></div></li>
+      </ul>
+    </div>
+    <div class="personalize-photo">
+      <img src="https://images.unsplash.com/photo-1464349153735-7db50ed83c84?w=700&h=700&fit=crop&q=80&auto=format" alt="Bolo personalizado">
+    </div>
+  </div>
+</section>
+
+<section class="contact" id="contato">
+  <div class="blob c1"></div>
+  <div class="blob c2"></div>
+  <div class="contact-inner">
+    <h2>Faça sua encomenda</h2>
+    <p class="lead">Escolha seu sabor, tamanho e decoração e prepare-se para deixar sua comemoração ainda mais especial!</p>
+    <div class="contact-card">
+      <div class="contact-row"><span class="ic">📱</span><div><h4>WhatsApp</h4><p>(00) 00000-0000</p></div></div>
+      <div class="contact-row"><span class="ic">📍</span><div><h4>Endereço</h4><p>Rua Exemplo, 123 — Bairro, Cidade/UF</p></div></div>
+      <div class="contact-row"><span class="ic">📸</span><div><h4>Instagram</h4><p>@estabelecimento</p></div></div>
+    </div>
+    <p class="thanks"><i>Obrigado por escolher a Cardápio de Exemplo!</i></p>
+    <p class="fine-print">Catálogo de demonstração — nomes, valores, dados de contato e fotos ilustrativas (Unsplash) servem apenas para fins de exemplo.</p>
+  </div>
+</section>
+
+<footer class="site-footer">© Cardápio de Exemplo — Catálogo digital de demonstração</footer>
+
+</body>
+</html>
